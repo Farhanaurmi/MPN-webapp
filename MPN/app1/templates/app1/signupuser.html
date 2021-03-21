@@ -1,12 +1,15 @@
 {% extends 'app1/base.html' %}
 {% block content %}
 
-<h3 class="btn btn-secondary">{{ error }}</h3>
+
 <div class="jumbotron">
 <form method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
-
+    {{ form.username }}
+    {{ form.email }}
+    {{ form.password1 }}
+    {{ form.password2 }}
+    {{ form.errors }}
 <button type="submit" class="btn btn-secondary">Sign Up</button>
 </div>
 </form>
