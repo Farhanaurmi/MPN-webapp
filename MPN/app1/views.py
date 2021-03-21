@@ -12,6 +12,7 @@ from django.contrib import messages
 #        ----------Log-in & Sign-up api----------
 
 def home(request):
+	
     return render(request, 'app1/home.html')
 
 # def signupuser(request):
@@ -30,25 +31,22 @@ def home(request):
 #             return render(request, 'app1/signupuser.html', {'form':UserCreationForm,'error':'password did not match'})
 
 def signupuser(request):
-
+	customer = Customer.objects.all()
 	form = CreateUserForm()
 	if request.method == 'POST':
 		form = CreateUserForm(request.POST)
 		if form.is_valid():
+			
 			user = form.save()
 			username = form.cleaned_data.get('username')
-
-			group = Group.objects.get(name='customer')
-			user.groups.add(group)
 
 			Customer.objects.create(
 				user=user,
 				name=user.username,
 				)
-
-			messages.success(request, 'Account was created for ' + username)
-
-			return redirect('loginuser')
+			user.save()
+			login(request,user)
+			return redirect('home')
 		
 
 	
