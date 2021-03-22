@@ -1,10 +1,10 @@
-{% extends 'reviewpost/base.html' %}
-{% block content %}
 <h3>{{ error }}</h3>
     <form method="POST" >
-        {% csrf_token %}
-        {{ form.as_p }}
+        {% csrf_token %} <br><br>
+        {{ form.content_name }}<br><br>
+        {{ form.content }}<br><br>
+        {{ form.photos }}<br><br>
     <button type="submit">Post</button>
-    <a href="{% url 'reviewpost' %}">Back</a>
+    <a href="{% url 'review_post' %}">Back</a>
     </form>
-{% endblock %}
+

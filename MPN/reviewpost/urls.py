@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     path('', views.review_post, name='review_post'),
-    path('postcomment',views.postcomment, name='postcomment'),
+    path('postcomment/<int:m_id>/',views.postcomment, name='postcomment'),
     path('creviewpost', views.creviewpost, name='creviewpost'),
     path('dreviewpost/<int:m_id>/', views.dreviewpost, name='dreviewpost'),
     path('mypostd/<int:m_id>/', views.mypostd, name='mypostd'),
