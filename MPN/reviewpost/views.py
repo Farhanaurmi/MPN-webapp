@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Reviewpost
+from .models import Reviewpost,ReviewComment
 from .forms import Reviewpostform
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
+from django.contrib import messages
 # Create your views here.
 def review_post(request):
     form = Reviewpost.objects.all()
@@ -26,7 +27,8 @@ def creviewpost(request):
 @login_required
 def dreviewpost(request,m_id):
     dd2 = get_object_or_404(Reviewpost, pk=m_id)
-    return render(request,'reviewpost/dreviewpost.html', {'dd':dd2})
+    comment = ReviewComment.objects.filter(post=post)
+    return render(request,'reviewpost/dreviewpost.html', {'dd':dd2 , 'comment':comment})
 
 
 @login_required
@@ -45,3 +47,15 @@ def mypostdelete(request,m_id):
     if request.method == 'POST':
         dd2.delete()
         return redirect('mypost')
+
+def postcomment(request):
+    if request.method=="POST":
+        comment=request.POST.get("comment")
+        user=request.user
+        postId=request.POST.get("postId")
+        post=Reviewpost.object.get(sno=postId)
+        comment=ReviewComment(comment=comment,user=user,post=post)
+        comment.save()
+
+        message.success(request,"Your comment has been posted successfully")
+        return redirect(f"/reviewpost/{post.sno}")

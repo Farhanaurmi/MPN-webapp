@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import Reviewpost
+from .models import *
 
-admin.site.register(Reviewpost)
+admin.site.register((Reviewpost,ReviewComment))
 
 
 

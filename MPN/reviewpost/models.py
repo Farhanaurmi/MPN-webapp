@@ -10,4 +10,18 @@ class Reviewpost(models.Model):
     date_created = models.DateTimeField(default=now)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
 
+
+    def __str__(self):
+        return self.content_name
+
+class ReviewComment(models.Model):
+    sno=models.AutoField(primary_key=True)
+    comment=models.TextField()
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    post=models.ForeignKey(Reviewpost,on_delete=models.CASCADE)
+    parent=models.ForeignKey('self',on_delete=models.CASCADE,null=True, blank=True)
+    date_created = models.DateTimeField(default=now)
+
+    
+
 	

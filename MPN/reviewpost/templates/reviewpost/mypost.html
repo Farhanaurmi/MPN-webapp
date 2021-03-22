@@ -2,7 +2,7 @@
 {% block content %}
 {% for i in form %}
 
-<a href="{% url 'mypostd' i.id %}">@{{ i.user }}<br><h4>{{ i.date_created }}</h4><br><h2>{{ i.content }}</h2></a> <br>
+<a href="{% url 'mypostd' i.sno %}">@{{ i.user }}<br><h4>{{ i.date_created }}</h4><br><h2>{{ i.content }}</h2></a> <br>
 
 {% endfor %}
 {% endblock %}

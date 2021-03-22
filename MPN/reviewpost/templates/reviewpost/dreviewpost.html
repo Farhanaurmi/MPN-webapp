@@ -9,11 +9,14 @@
     <h5>{{ dd.content_name }}</h5>
     <h5>{{ dd.content }}</h5>
     <h5>{{ dd.photos }}</h5>
+
+    <!-- <form action="/reviewpost/dreviewpost" method="POST">
+      {% csrf_token %}
+      <input type="text"  name="comment" placeholder="Enter comment here">
+      <input type="hidden"  name="postId" value="{{ post.sno }}">
+      <input type="submit" value="Submit">
+    </form> -->
+
+    
 {% endblock %}
 
-<!-- sno=models.AutoField(primary_key=True)
-content_name = models.CharField(max_length=150, null=True)
-content = models.TextField()
-photos = models.ImageField(null=True, blank=True)
-date_created = models.DateTimeField(default=now)
-user = models.ForeignKey(User,on_delete=models.CASCADE) -->
