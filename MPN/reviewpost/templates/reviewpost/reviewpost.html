@@ -1,24 +1,30 @@
-{% extends 'reviewpost/base.html' %}
-{% block content %}
-
-
-{% for i in form %}
-<a href="#">@{{ i.user }}<br><h4>{{ i.date_created }}</h4><br><h2>{{ i.content }}</h2></a>
-{% endfor %}
-
-    <a href="{% url 'creviewpost' %}"> Create Post</a>
-    <br>
-    <br>
-    <!-- <a href="{% url '#' %}"> My Post</a> -->
-<br>
-<br>
-
-
-{% endblock %}
-
 <!-- sno=models.AutoField(primary_key=True)
 content_name = models.CharField(max_length=150, null=True)
 content = models.TextField()
 photos = models.ImageField(null=True, blank=True)
 date_created = models.DateTimeField(default=now)
 user = models.ForeignKey(User,on_delete=models.CASCADE) -->
+
+
+{% extends 'reviewpost/base.html' %}
+{% block content %}
+
+
+{% for i in form %}
+<div class="jumbotron text-center">
+<a href="{% url 'dreviewpost' i.sno %}">@{{ i.user }}</a>
+</div>
+{% endfor %}
+
+
+<div class="jumbotron text-center">
+    <div class="btn-group btn-group-lg ">
+    <a href="{% url 'creviewpost' %}" class="btn btn-dark"> Create Post</a>
+    <br>
+    <br>
+    <a href="{% url 'mypost' %}" class="btn btn-dark" > My Post</a>
+<br>
+<br>
+</div>
+
+{% endblock %}

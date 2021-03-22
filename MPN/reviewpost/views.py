@@ -4,7 +4,7 @@ from .forms import Reviewpostform
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 # Create your views here.
-def reviewpost(request):
+def review_post(request):
     form = Reviewpost.objects.all()
     return render(request,'reviewpost/reviewpost.html',  {'form':form})
 
@@ -24,8 +24,8 @@ def creviewpost(request):
 
 
 @login_required
-def dreviewpost(request,d_id):
-    dd2 = get_object_or_404(Reviewpost, pk=d_id)
+def dreviewpost(request,m_id):
+    dd2 = get_object_or_404(Reviewpost, pk=m_id)
     return render(request,'reviewpost/dreviewpost.html', {'dd':dd2})
 
 
