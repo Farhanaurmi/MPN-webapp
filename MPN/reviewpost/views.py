@@ -16,7 +16,7 @@ def creviewpost(request):
         return render(request, 'reviewpost/creviewpost.html', {'form': Reviewpostform()})
     else:
         try:
-            dr = Reviewpostform(request.POST)
+            dr = Reviewpostform(data=request.POST,files=request.FILES)
             new_dr = dr.save(commit=False)
             new_dr.user = request.user
             new_dr.save()

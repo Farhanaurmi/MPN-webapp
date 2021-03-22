@@ -1,9 +1,10 @@
 <h3>{{ error }}</h3>
-    <form method="POST" >
+    <form method="POST" enctype="multipart/form-data" >
         {% csrf_token %} <br><br>
         {{ form.content_name }}<br><br>
         {{ form.content }}<br><br>
         {{ form.photos }}<br><br>
+
     <button type="submit">Post</button>
     <a href="{% url 'review_post' %}">Back</a>
     </form>

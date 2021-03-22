@@ -6,7 +6,7 @@ class Reviewpost(models.Model):
     sno=models.AutoField(primary_key=True)
     content_name = models.CharField(max_length=150, null=True)
     content = models.TextField()
-    photos = models.ImageField(null=True, blank=True)
+    photos = models.ImageField(default="p1.png",upload_to="images/%y",null=True, blank=True)
     date_created = models.DateTimeField(default=now)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
 
