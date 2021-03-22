@@ -6,9 +6,9 @@
     <br><br>
     <h5>{{ dd.content_name }}</h5>
     <h5>{{ dd.content }}</h5>
-    {% if dd.photos.url %}
-    <img src="{{ dd.photos.url }}" width="400"><br>
-    {% endif %}
+   
+   
+    
     <form action="{% url 'postcomment' dd.sno  %}" method="post">
       {% csrf_token %}
       <input type="text" name="comment" placeholder="Enter comment here">

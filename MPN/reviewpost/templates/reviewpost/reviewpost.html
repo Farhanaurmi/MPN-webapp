@@ -4,7 +4,9 @@
 
 {% for i in form %}
 <div class="jumbotron text-center">
-<a href="{% url 'dreviewpost' i.sno %}">@{{ i.user }}</a>
+
+@{{ i.user }}<br>{{ i.date_created }}
+<a href="{% url 'dreviewpost' i.sno %}"><br><h4>{{ i.content_name|safe|truncatechars:50 }}</h4></a>
 </div>
 {% endfor %}
 

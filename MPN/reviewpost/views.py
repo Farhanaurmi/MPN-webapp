@@ -41,7 +41,7 @@ def mypostd(request,m_id):
 
 @login_required
 def mypost(request):
-    form = Reviewpost.objects.filter(user=request.user, dtime__isnull=True)
+    form = Reviewpost.objects.filter(user=request.user)
     return render(request, 'reviewpost/mypost.html', {'form':form})
     
 @login_required
