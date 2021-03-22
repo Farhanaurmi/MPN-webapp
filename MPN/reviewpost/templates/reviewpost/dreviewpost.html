@@ -1,0 +1,19 @@
+
+{% extends 'reviewpost/base.html' %}
+{% block content %}
+
+    
+    <h3>@{{ dd.user }}</h3>
+    <h4>{{ dd.date_created|date:'M j Y H:i' }}</h4>
+    <br><br>
+    <h5>{{ dd.content_name }}</h5>
+    <h5>{{ dd.content }}</h5>
+    <h5>{{ dd.photos }}</h5>
+{% endblock %}
+
+<!-- sno=models.AutoField(primary_key=True)
+content_name = models.CharField(max_length=150, null=True)
+content = models.TextField()
+photos = models.ImageField(null=True, blank=True)
+date_created = models.DateTimeField(default=now)
+user = models.ForeignKey(User,on_delete=models.CASCADE) -->
