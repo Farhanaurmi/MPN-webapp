@@ -4,12 +4,15 @@ from .forms import *
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.contrib import messages
+
 # Create your views here.
+@login_required
 def review_post(request):
     form = Reviewpost.objects.all()
     return render(request,'reviewpost/reviewpost.html',  {'form':form})
 
 
+@login_required
 def creviewpost(request):
     if request.method == 'GET':
         
@@ -45,12 +48,13 @@ def mypost(request):
     return render(request, 'reviewpost/mypost.html', {'form':form})
     
 @login_required
-def mypostdelete(request,m_id):
+def mypostdelete(request, m_id):
     dd2 = get_object_or_404(Reviewpost, pk=m_id, user=request.user)
     if request.method == 'POST':
         dd2.delete()
         return redirect('mypost')
 
+@login_required
 def postcomment(request, m_id):
     if request.method=="POST":
         comment=request.POST.get('comment')

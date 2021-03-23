@@ -1,5 +1,4 @@
-{% extends 'reviewpost/base.html' %}
-{% block content %}
+
 
     
     <h3>@{{ dd.user }}</h3>
@@ -9,10 +8,9 @@
     <h5>{{ dd.content }}</h5>
     <img src="{{ dd.photos.url}}" width="400"><br>
 
-<form method="POST" action="{% url 'mypostdelete' dd.id %}">
+<form method="POST" action="{% url 'mypostdelete' dd.sno %}" enctype="multipart/form-data">
     {% csrf_token %}
     <button type="submit">Delete</button>
 </form>
 
-{% endblock %}
 
