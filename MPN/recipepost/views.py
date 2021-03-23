@@ -29,3 +29,8 @@ def cpost(request):
 def dpost(request,d_id):
     dd2 = get_object_or_404(Recipepost, pk=d_id)
     return render(request,'recipepost/dpost.html', {'dd':dd2})
+
+def search(request):
+    query=request.GET['query']
+    allpost=Recipepost.objects.filter(title__icontains=query)
+    return render(request,'recipepost/search.html', {'allpost': allpost})

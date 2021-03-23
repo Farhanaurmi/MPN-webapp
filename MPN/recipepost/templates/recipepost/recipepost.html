@@ -1,12 +1,18 @@
-{% extends 'reviewpost/base.html' %}
-{% block content %}
+
+
+<form method="GET" action="{% url 'search' %}" >
+    <input type="search" placeholder="Search" aeia-label="search" name="query" id="query">
+    <button type="submit">Search</button>
+</form>
 
 
 {% for i in form %}
 <div class="jumbotron text-center">
 
-@{{ i.user }}<br>{{ i.date_created }}
+
 <a href="{% url 'dpost' i.sno %}"><br><h4>{{ i.title|safe|truncatechars:50 }}</h4></a>
+@{{ i.user }}<br>{{ i.date_created }}
+<h5>{{ i.recipe|safe|truncatechars:100 }}</h5>
 </div>
 {% endfor %}
 
@@ -18,4 +24,3 @@
 <br>
 </div>
 
-{% endblock %}

@@ -7,5 +7,6 @@ urlpatterns = [
 path('', views.recipepost, name='recipepost'),
 path('cpost', views.cpost, name='cpost'),
 path('dpost/<int:d_id>/', views.dpost, name='dpost'),
+path('search', views.search, name='search'),
 ]
 
