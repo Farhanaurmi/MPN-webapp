@@ -26,6 +26,7 @@ urlpatterns = [
     path('login/', views.loginuser, name='loginuser'),
     path('logout/', views.logoutuser, name='logoutuser'), 
     path('reviewpost/', include('reviewpost.urls')),
+    path('recipepost/', include('recipepost.urls')),
     
 ]
 

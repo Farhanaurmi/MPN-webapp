@@ -1,0 +1,11 @@
+<h3>{{ error }}</h3>
+    <form method="POST" enctype="multipart/form-data" >
+        {% csrf_token %} <br><br>
+        {{ form.title }}<br><br>
+        {{ form.recipe }}<br><br>
+        {{ form.photos }}<br><br>
+
+    <button type="submit">Post</button>
+    <a href="{% url 'recipepost' %}">Back</a>
+    </form>
+

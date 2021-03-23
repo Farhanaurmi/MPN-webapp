@@ -1,0 +1,21 @@
+{% extends 'reviewpost/base.html' %}
+{% block content %}
+
+
+{% for i in form %}
+<div class="jumbotron text-center">
+
+@{{ i.user }}<br>{{ i.date_created }}
+<a href="{% url 'dpost' i.sno %}"><br><h4>{{ i.title|safe|truncatechars:50 }}</h4></a>
+</div>
+{% endfor %}
+
+
+<div class="jumbotron text-center">
+    <div class="btn-group btn-group-lg ">
+    <a href="{% url 'cpost' %}" class="btn btn-dark"> Create Recipe</a>
+<br>
+<br>
+</div>
+
+{% endblock %}

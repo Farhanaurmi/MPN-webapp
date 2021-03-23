@@ -1,0 +1,31 @@
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import *
+from .forms import *
+from django.contrib.auth.decorators import login_required
+
+
+
+@login_required
+def recipepost(request):
+    form = Recipepost.objects.all()
+    return render(request,'recipepost/recipepost.html', {'form':form})
+
+
+@login_required
+def cpost(request):
+    if request.method == 'GET':
+        return render(request, 'recipepost/cpost.html', {'form':Recipepostform()})
+    else:
+        try:
+            dr = Recipepostform(request.POST)
+            new_dr = dr.save(commit=False)
+            new_dr.user = request.user
+            new_dr.save()
+            return redirect('recipepost')
+        except ValueError:
+            return render(request, 'recipepost/cpost.html', {'form':Recipepostform(), 'error':'Error! Try again!'})
+
+@login_required
+def dpost(request,d_id):
+    dd2 = get_object_or_404(Recipepost, pk=d_id)
+    return render(request,'recipepost/dpost.html', {'dd':dd2})
