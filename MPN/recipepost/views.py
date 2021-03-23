@@ -17,7 +17,7 @@ def cpost(request):
         return render(request, 'recipepost/cpost.html', {'form':Recipepostform()})
     else:
         try:
-            dr = Recipepostform(request.POST)
+            dr = Recipepostform(data=request.POST,files=request.FILES)
             new_dr = dr.save(commit=False)
             new_dr.user = request.user
             new_dr.save()
