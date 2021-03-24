@@ -1,15 +1,18 @@
 <img src="{{ user.profile.profile_pic.url }}" width="100px">
         
           <h2>{{ user.username }}</h2>
-          <p>{{ user.email }}</p>
+          <h3>{{ user.email }}</h3>
     
      
       <form method="POST" enctype="multipart/form-data">
           {% csrf_token %}
         
-              <legend>Profile Info</legend>
-              {{ u_form }}
-              {{ p_form }}
+              <legend>Profile Info</legend><br>
+              Username: {{ u_form.username }} <br><br>
+              Name: {{ p_form.name }} <br><br>
+              Email: {{ u_form.email }} <br><br>
+              Phone: {{ p_form.phone }} <br><br>
+              Profile Pic: {{ p_form.profile_pic }} <br><br>
       
 
               <button type="submit">Update</button>

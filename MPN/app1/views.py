@@ -31,10 +31,7 @@ def signupuser(request):
 				)
 			user.save()
 			login(request,user)
-			return redirect('home')
-		
-
-	
+			return redirect('home')			
 	return render(request, 'app1/signupuser.html',{'form':form} )
 
 
