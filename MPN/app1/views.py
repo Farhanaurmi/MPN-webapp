@@ -15,21 +15,6 @@ def home(request):
 	
     return render(request, 'app1/home.html')
 
-# def signupuser(request):
-#     if request.method=='GET':
-#         return render(request, 'app1/signupuser.html',{'form':UserCreationForm})
-#     else:
-#         if request.POST['password1']==request.POST['password2']:
-#             try:
-#                 user=User.objects.create_user(request.POST['username'],password=request.POST['password1'])
-#                 user.save()
-#                 login(request,user)
-#                 return redirect('home')
-#             except IntegrityError:
-#                 return render(request, 'app1/signupuser.html', {'form':UserCreationForm,'error':'username has been already taken'})
-#         else:
-#             return render(request, 'app1/signupuser.html', {'form':UserCreationForm,'error':'password did not match'})
-
 def signupuser(request):
 	customer = Customer.objects.all()
 	form = CreateUserForm()
@@ -70,8 +55,24 @@ def logoutuser(request):
         logout(request)
         return redirect('home')
 
-#----------------------------------------------
 
-
+@login_required
+def profile(request):
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            return redirect('profile')
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user)
+    context = {
+        'u_form': u_form,
+        'p_form': p_form,
+		'form':Customer()
+    }
+    return render(request, 'app1/profile.html', context)
 
 
