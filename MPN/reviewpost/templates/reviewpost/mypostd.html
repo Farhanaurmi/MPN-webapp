@@ -1,4 +1,4 @@
-    <h3>@{{ dd.user }}</h3>
+<img src="{{ user.profile.profile_pic.url }}" alt="user image" width="35"> <h3>@{{ dd.user }}</h3>
     <h4>{{ dd.date_created|date:'M j Y H:i' }}</h4>
     <br><br>
     <h5>{{ dd.content_name }}</h5>
@@ -9,5 +9,6 @@
     {% csrf_token %}
     <button type="submit">Delete</button>
 </form>
+<a href="{% url 'mypost' %}">Back</a>
 
 

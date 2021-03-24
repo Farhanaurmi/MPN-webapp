@@ -13,6 +13,7 @@
 <a href="{% url 'dpost' i.sno %}"><br><h4>{{ i.title|safe|truncatechars:50 }}</h4></a>
 @{{ i.user }}<br>{{ i.date_created }}
 <h5>{{ i.recipe|safe|truncatechars:100 }}</h5>
+
 </div>
 {% endfor %}
 
@@ -20,6 +21,7 @@
 <div class="jumbotron text-center">
     <div class="btn-group btn-group-lg ">
     <a href="{% url 'cpost' %}" class="btn btn-dark"> Create Recipe</a>
+    <a href="/">Home</a>
 <br>
 <br>
 </div>
