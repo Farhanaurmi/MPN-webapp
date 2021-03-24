@@ -72,3 +72,9 @@ def profile(request):
     return render(request, 'app1/profile.html', context)
 
 
+@login_required
+def about(request):
+    
+    return render(request, 'app1/about.html')
+
+
