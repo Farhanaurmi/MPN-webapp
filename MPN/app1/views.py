@@ -77,4 +77,8 @@ def about(request):
     
     return render(request, 'app1/about.html')
 
+@login_required
+def map(request):
+    return render(request, 'app1/map.html')
+
 
