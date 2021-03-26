@@ -34,3 +34,12 @@ def search(request):
     query=request.GET['query']
     allpost=Recipepost.objects.filter(title__icontains=query)
     return render(request,'recipepost/search.html', {'allpost': allpost})
+
+@login_required
+def rate(request, m_id):
+    if request.method == 'POST':
+        score = request.POST.get('score')
+        title = Recipepost.objects.get(sno=m_id)
+        obj = Rating(title=title, score=score)
+        obj.save()
+        return redirect(f'/recipepost/dpost/{m_id}')

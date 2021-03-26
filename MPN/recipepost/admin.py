@@ -1,4 +1,4 @@
 from django.contrib import admin
 from .models import *
 
-admin.site.register(Recipepost)
+admin.site.register((Recipepost,Rating))
