@@ -1,7 +1,24 @@
-
 {% extends 'app1/base.html' %}
 {% block content %}
-
+<div class="anmt">
+    <h1>Cooked to perfection...</h1>
+  <div id="cooking">
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div id="area">
+          <div id="sides">
+              <div id="pan"></div>
+              <div id="handle"></div>
+          </div>
+          <div id="pancake">
+              <div id="pastry"></div>
+          </div>
+      </div>
+  </div>
+  </div>
 <a class="btn btn-dark" href="{% url 'recipepost' %}">Recipe Calender</a> 
 
 <a class="btn btn-dark" href="{% url 'review_post' %}">Food Review</a> 
