@@ -5,7 +5,7 @@
 {% for i in form %}
 <div class="jumbotron text-center">
 
-@{{ i.user }}<br>{{ i.date_created }}
+    <img src="{{ i.user.profile.profile_pic.url }}" alt="user image" width="35">{{ i.user }}<br>{{ i.date_created }}
 <a href="{% url 'dreviewpost' i.sno %}"><br><h4>{{ i.content_name|safe|truncatechars:50 }}</h4></a>
 </div>
 {% endfor %}

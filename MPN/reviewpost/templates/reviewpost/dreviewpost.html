@@ -1,7 +1,7 @@
 
 
     
-    <h3>@{{ dd.user }}</h3>
+   <img src="{{ dd.user.profile.profile_pic.url }}" alt="user image" width="35"> <h3>{{ dd.user }}</h3>
     <h4>{{ dd.date_created|date:'M j Y H:i' }}</h4>
     <br><br>
     <h5>{{ dd.content_name }}</h5>
@@ -9,7 +9,16 @@
 
     <img src="{{ dd.photos.url }}" alt="a">
    
-   
+    <br><br><hr>
+    <form action="{% url 'likepost' dd.sno %}" method="POST">
+      {% csrf_token %}
+      {% if liked %}
+      <button type="submit" name="post_id" value="{{ dd.sno }}" class="btn btn-primary btn-sm">Unlike</button>
+      {% else %}
+      <button type="submit" name="post_id" value="{{ dd.sno }}" class="btn btn-primary btn-sm">Like</button>
+      {% endif %} - {{ total_likes }} like{{ total_likes|pluralize }}
+    </form>
+    <hr><br>
     
     <form action="{% url 'postcomment' dd.sno  %}" method="post">
       {% csrf_token %}
@@ -19,7 +28,7 @@
     </form>
     <div><br><br>
       {% for i in comments %}
-      {{ i.user.username }} <h5> {{ i.date_created }}</h5> <br>
+      <img src="{{ i.user.profile.profile_pic.url }}" alt="user image" width="35">{{ i.user.username }} <h5> {{ i.date_created }}</h5> <br>
       {{ i.comment }}
       <br><br>
       {% endfor %}

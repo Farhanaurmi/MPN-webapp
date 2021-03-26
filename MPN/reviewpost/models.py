@@ -9,7 +9,10 @@ class Reviewpost(models.Model):
     photos = models.ImageField(default="p1.png",upload_to="images/%y",null=True, blank=True)
     date_created = models.DateTimeField(default=now)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
+    likes = models.ManyToManyField(User,related_name='postlikes')
 
+    def total_likes(self):
+        return self.likes.count()
 
     def __str__(self):
         return self.content_name

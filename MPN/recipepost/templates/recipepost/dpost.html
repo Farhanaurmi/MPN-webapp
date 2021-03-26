@@ -1,10 +1,10 @@
-<h3>@{{ dd.user }}</h3>
+<h3> <img src="{{ dd.user.profile.profile_pic.url }}" alt="user image" width="35">{{ dd.user }}</h3>
 <h4>{{ dd.date_created|date:'M j Y H:i' }}</h4>
 <br><br>
 <h5>{{ dd.title }}</h5>
 <h5>{{ dd.recipe }}</h5>
 
-<img src="{{ dd.photos.url }}" alt="a"> <br> <br>
+<img src="{{ dd.photos.url }}" alt="a" width="200"> <br> <br>
 <a href="/recipepost">Back</a>
 
 
