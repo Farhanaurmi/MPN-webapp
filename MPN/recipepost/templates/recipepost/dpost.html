@@ -8,11 +8,21 @@
 <h5>{{ dd.avg_ratings }}</h5>
 
 <img src="{{ dd.photos.url }}" alt="a" width="200"> <br> <br>
+<form action="{% url 'rate' dd.sno  %}" method="post">
+  {% csrf_token %}
+  <label for="rate">Rating:</label>
+
+  <select id="rate" name="score">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <input type="submit" value="Submit">
+</form> 
+
 <a href="/recipepost">Back</a>
 
 
-<form action="{% url 'rate' dd.sno  %}" method="post">
-    {% csrf_token %}
-    <input type="number" name="score">
-    <input type="submit" value="Submit">
-  </form> 
+  
