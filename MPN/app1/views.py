@@ -10,7 +10,7 @@ from django.contrib import messages
 
 
 #        ----------Log-in & Sign-up api----------
-
+@login_required
 def home(request):
 	
     return render(request, 'app1/home.html')
