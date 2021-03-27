@@ -5,7 +5,7 @@
 <h5>{{ dd.recipe }}</h5>
 
 <h5>{{ dd.no_of_ratings }}</h5>
-<h5>{{ dd.avg_ratings }}</h5>
+<h5>{{ dd.avg_ratings|floatformat:1 }}</h5>
 
 <img src="{{ dd.photos.url }}" alt="a" width="200"> <br> <br>
 <form action="{% url 'rate' dd.sno  %}" method="post">
