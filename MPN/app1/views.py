@@ -41,7 +41,7 @@ def loginuser(request):
     else:
         user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
         if user is None:
-            return render(request, 'app1/login.html', {'form':AuthenticationForm(), 'error':'Error! Try again with correct username & password'})
+            return render(request, 'app1/login.html', {'form':AuthenticationForm(), 'error':'Error! Try again..'})
         else:
             login(request, user)
             return redirect('home')

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'app1',
     'reviewpost',
     'recipepost',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
