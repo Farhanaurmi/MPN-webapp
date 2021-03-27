@@ -1,14 +1,81 @@
-{% extends 'app1/base.html' %}
-{% block content %}
-<br><br><br><br>
-<div class="jumbotron">
-<h1>Sign-in Form</h1>
-<h2>{{ error }}</h2>
-
-<form method="POST" >
-    {% csrf_token %}
-    {{ form.as_p }}
-<button type="submit" class="btn btn-secondary">Sign-In</button>
-</form>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.3.0/font-awesome-animation.min.css">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="icon" type="image/png"  href="{% static 'images/icon.png' %}">
+    <title>MPN Login</title>
+</head>
+<div class="top-header">
 </div>
-{% endblock %}
+
+<body>
+    
+
+<div id="mainCoantiner">
+  <div class="main-header">
+  <div class="folio-btn">
+    <a class="folio-btn-item ajax" href="" target="_blank">
+        <span class="folio-btn-dot">
+        </span><span class="folio-btn-dot"></span>
+        <span class="folio-btn-dot"></span><span class="folio-btn-dot">        </span>
+        <span class="folio-btn-dot"></span>
+        <span class="folio-btn-dot"></span>
+        <span class="folio-btn-dot"></span>
+        <span class="folio-btn-dot"></span>
+        <span class="folio-btn-dot"></span>
+    </a>
+  </div>
+</div>
+
+
+<div>
+  <div class="starsec"></div>
+  <div class="starthird"></div>
+  <div class="starfourth"></div>
+  <div class="starfifth"></div>
+</div>
+
+
+<div class="container text-center text-dark mt-5">
+  <div class="row">
+    <div class="col-lg-4 d-block mx-auto mt-5">
+      <div class="row">
+        <div class="col-xl-12 col-md-12 col-md-12">
+          <div class="card">
+            <div class="card-body wow-bg" id="formBg">
+              <h3 class="colorboard">Login</h3>
+
+              <p class="incolor">Sign In to your account</p>
+              <p class="incolor">{{ error }}</p>
+
+              <!-- <form method="POST" >
+                {% csrf_token %}
+                {{ form.as_p }}
+            <button type="submit" class="btn btn-secondary">Sign-In</button>
+            </form> -->
+              <div class="input-group mb-3"> <input type="text" class="form-control textbox-dg" placeholder="Username"> </div>
+              <div class="input-group mb-4"> <input type="password" class="form-control textbox-dg" placeholder="Password"> </div>
+
+              <div class="row">
+                <div class="col-12"> <button type="button" class="btn btn-primary btn-block logn-btn">Login</button> </div>
+                <div class="col-12"> <a href="" class="incolor2">Sign up for new account</a> </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<h2>{{ error }}</h2>
+</body>
+</html>
