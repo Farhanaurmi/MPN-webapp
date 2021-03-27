@@ -21,7 +21,7 @@
 <div id="mainCoantiner">
   <div class="main-header">
   <div class="folio-btn">
-    <a class="folio-btn-item ajax" href="" target="_blank">
+    <a class="folio-btn-item ajax" href="/signup">
         <span class="folio-btn-dot">
         </span><span class="folio-btn-dot"></span>
         <span class="folio-btn-dot"></span><span class="folio-btn-dot">        </span>
@@ -59,17 +59,17 @@
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
               <div class="input-group mb-3"> 
-                  {{ form.username|add_class:'form-control textbox-dg' }}
+                  {{ form.username|add_class:'form-control textbox-dg'|attr:"placeholder:username" }}
                 </div>
               <div class="input-group mb-4"> 
-                {{ form.password|add_class:'form-control textbox-dg' }}
+                {{ form.password|add_class:'form-control textbox-dg'|attr:"placeholder:password" }}
                   
                 </div>
 
               <div class="row">
                 <div class="col-12"> <button type="submit" class="btn btn-primary btn-block logn-btn">Login</button> </div>
             </form>
-                <div class="col-12"> <a href="" class="incolor2">Sign up for new account</a> </div>
+                <div class="col-12"> <a href="/signup" class="incolor2">Sign up for new account</a> </div>
               </div>
 
             </div>
@@ -80,7 +80,5 @@
   </div>
 </div>
 </div>
-
-<h2>{{ error }}</h2>
 </body>
 </html>
