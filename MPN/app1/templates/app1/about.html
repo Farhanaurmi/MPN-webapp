@@ -15,7 +15,7 @@
     
     <div class="header-wrapper">
         <div class="logo-wrap">
-            <a href="#" class="hover-target"><span>Meal Planning</span>NoteBook</a>
+            <a href="/" class="hover-target"><span>Meal Planning</span>NoteBook</a>
         </div>
         <div class="nav-but-wrap">
             <div class="menu-icon hover-target">
@@ -61,15 +61,20 @@
 <div class='cursor3' id="cursor3"></div>
  
 <div id="about">
-<img src="{{ user.profile.profile_pic.url }}" width="100px">
+<img id="aboutimg" src="{{ user.profile.profile_pic.url }}" width="100px">
 
 <legend>Profile Info</legend><br>
 <div class="about2">Username:{{ user.username }}</div> <br><br>
 <div class="about2">Name: {{ user.profile.name }}</div><br><br>
 <div class="about2">Email: {{ user.email }}</div><br><br>
 <div class="about2">Phone: {{ user.profile.phone }}</div> <br><br>
+<div class="header-wrapper">
+    <div class="logo-wrap">
+        <a href="/profile" class="hover-target"><span>Update</span>info</a>
+    </div>
+    </div>
 
-<a href="/profile">Update info</a></div>
+
 </div>
     
 {% endblock %}

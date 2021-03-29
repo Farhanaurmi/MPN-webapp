@@ -14,10 +14,10 @@ body{
 
 #about {
 	border: 2px solid #c4c3ca;
-	padding-left: 45%;
+	padding-left: 35%;
 	padding-top: 2%;
 	padding-bottom: 2%;
-	margin-top: -500px;
+	margin-top: -550px;
 }
 
 .about2{
@@ -26,12 +26,21 @@ body{
 	border: 1px solid #8167a9;
 	box-shadow: 0 5px 5px rgb(88, 87, 87);
 	padding: 5px;
-	width: 40%;
+	width: 50%;
 	box-sizing: border-box;
 	position: relative;
 	border-radius: 15%;
 
 }
+#aboutimg{
+		display: inline-block;
+		position: relative;
+		width: 125px;
+		height: 125px;
+		overflow: hidden;
+		border-radius: 50%;
+}
+
 
 a {
 	cursor: pointer;
