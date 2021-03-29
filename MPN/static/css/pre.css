@@ -52,7 +52,7 @@
     position: absolute;
     top: 75%;
     transform: translateY(-75%);
-    color: white;
+    color: rgb(1, 47, 73);
     font-size: 30px;
     font-family: sans-serif;
   }

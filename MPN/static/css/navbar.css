@@ -12,12 +12,33 @@ body{
 	transition: all 300ms linear;
 }
 
+#cname{
+	color: rgb(98, 135, 236);
+	padding-top: 35px;
+	font-size: larger;
+	font-weight: bold;
+	text-decoration: none;
+	padding-left: 43px;
+}
+
+#rdate{
+	color: rgb(145, 145, 145);
+	font-weight:bold;
+	font-size: smaller;
+	padding-left: 43px;
+}
+
+#username{
+	color: rgb(104, 207, 173);
+	font-weight: bold;
+}
+
 #review{
 	border: 0px solid #c4c3ca;
-	padding-left: 35%;
+	margin-left: 30%;
 	padding-top: 2%;
 	padding-bottom: 2%;
-	margin-top: -200px;
+	margin-top: -600px;
 }
 
 #option{
@@ -30,17 +51,17 @@ body{
 	display: inline-block;
 		position: relative;
 		width: 40px;
-		height: 40px;
+		height: 37px;
 		overflow: hidden;
 		border-radius: 50%;
 }
 #reviewimg2{
 	display: inline-block;
 		position: relative;
-	
+		padding-left: 43px;
+		padding-bottom: 20px;
 		overflow: hidden;
 		border-radius: 5%;
-
 }
 #section{
 	display: inline-block;
@@ -48,7 +69,7 @@ body{
 	box-shadow: 0 5px 5px rgb(88, 87, 87);
 	padding: 10px 15px;
 	margin-left: -100px;
-	width: 85%;
+	width: 90%;
 	box-sizing: border-box;
 	position: relative;
 	border-radius: 2%;
@@ -80,7 +101,7 @@ body{
 		display: inline-block;
 		position: relative;
 		width: 125px;
-		height: 125px;
+		height: 110px;
 		overflow: hidden;
 		border-radius: 50%;
 }
@@ -88,6 +109,7 @@ body{
 
 a {
 	cursor: pointer;
+	text-decoration: none;
 }
 a:hover {
 	text-decoration: none;
