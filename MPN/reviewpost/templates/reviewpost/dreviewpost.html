@@ -1,38 +1,150 @@
 
+{% extends 'reviewpost/base.html' %}
+{% load static %}
+{% block content %}
+<div class="preload">
+    <img class="airplane" src="{% static 'images/LogoMakr-2yVqk6.png' %}" alt="airplane">
+    <h3>please wait...</h3>
+    <img class="cloud1" src="{% static 'images/LogoMakr-4xuIuN.png' %}" alt="cloud1">
+    <img class="cloud2" src="{% static 'images/LogoMakr-4xuIuN.png' %}">
+    <img class="cloud3" src="{% static 'images/LogoMakr-4xuIuN.png' %}" alt="cloud3">
+  </div>  
+
+
+  <div class="cd-header">
 
     
-   <img src="{{ dd.user.profile.profile_pic.url }}" alt="user image" width="35"> <h3>{{ dd.user }}</h3>
-    <h4>{{ dd.date_created|date:'M j Y H:i' }}</h4>
-    <br><br>
-    <h5>{{ dd.content_name }}</h5>
-    <h5>{{ dd.content }}</h5>
+    <div class="header-wrapper">
+        <div class="logo-wrap">
+            <a href="/" class="hover-target"><span>Meal Planning</span>NoteBook</a>
+        </div>
+        <div class="nav-but-wrap">
+            <div class="menu-icon hover-target">
+                <span class="menu-icon__line menu-icon__line-left"></span>
+                <span class="menu-icon__line"></span>
+                <span class="menu-icon__line menu-icon__line-right"></span>
+            </div>					
+        </div>					
+    </div>				
+</div>
 
-    <img src="{{ dd.photos.url }}" alt="a">
-   
-    <br><br><hr>
-    <form action="{% url 'likepost' dd.sno %}" method="POST">
-      {% csrf_token %}
-      {% if liked %}
-      <button type="submit" name="post_id" value="{{ dd.sno }}" class="btn btn-primary btn-sm">Unlike</button>
-      {% else %}
-      <button type="submit" name="post_id" value="{{ dd.sno }}" class="btn btn-primary btn-sm">Like</button>
-      {% endif %} - {{ total_likes }} like{{ total_likes|pluralize }}
-    </form>
-    <hr><br>
-    
-    <form action="{% url 'postcomment' dd.sno  %}" method="post">
-      {% csrf_token %}
-      <input type="text" name="comment" placeholder="Enter comment here">
-      <input type="hidden" name="sno" value="{{post.sno}}" >
-      <input type="submit" value="Submit">
-    </form>
-    <div><br><br>
-      {% for i in comments %}
-      <img src="{{ i.user.profile.profile_pic.url }}" alt="user image" width="35">{{ i.user.username }} <h5> {{ i.date_created }}</h5> <br>
-      {{ i.comment }}
-      <br><br>
-      {% endfor %}
+<div class="nav">
+    <div class="nav__content">
+        <ul class="nav__list">
+            <li class="nav__list-item active-nav"><a href="/" class="hover-target">home</a></li>
+            <li class="nav__list-item"><a href="{% url 'creviewpost' %}" class="hover-target">Create Post</a></li>
+            <li class="nav__list-item"><a href="{% url 'mypost' %}" class="hover-target">My Post</a></li>
+            <li class="nav__list-item"><a href="{% url 'about' %}" class="hover-target">My Profile</a></li>
+
+            <li class="nav__list-item"><form method="POST" action="{% url 'logoutuser' %}">
+                {% csrf_token %}
+            <button type="submit">Log Out</button></form></li>
+        </ul>
     </div>
-    <a href="/reviewpost">Back</a>
+</div>		
+
+<div class="section full-height over-hide">	
+    <div class="switch-wrap">
+        <div id="switch" class="hover-target">
+            <div id="circle"></div>
+        </div>
+        <p><span>dark</span> - <span>light</span></p>
+        
+    </div>
+  
+      </div>
+
+</div>
     
 
+<div class='cursor' id="cursor"></div>
+<div class='cursor2' id="cursor2"></div>
+<div class='cursor3' id="cursor3"></div>
+
+<div id="review">   
+   
+    <div id="section">
+    <div id="username"> 
+        <img src="{{ dd.user.profile.profile_pic.url }}" alt="user image" width="40px" id="reviewimg1"> 
+        {{ dd.user }} 
+    </div>
+
+    <div id="rdate"> 
+        <small> {{ dd.date_created }} </small> 
+    </div>
+
+   
+        <div id="cname"> {{ dd.content_name|safe }} </div>
+        <div id="cname2"> {{ dd.content|safe }} </div>
+   
+
+    <div id="reviewimg2">
+        <img src="{{ dd.photos.url }}" alt="a" width="200px"> 
+    </div>
+
+    </div>
+    <br><br><br>
+
+</div>
+
+
+
+
+<div id="rcomment">
+<br><hr>
+<form action="{% url 'likepost' dd.sno %}" method="POST">
+  {% csrf_token %}
+  {% if liked %}
+  <button type="submit" name="post_id" value="{{ dd.sno }}" class="btn btn-primary btn-sm">Unlike</button>
+  {% else %}
+  <button type="submit" name="post_id" value="{{ dd.sno }}" class="btn btn-primary btn-sm">Like</button>
+  {% endif %} - {{ total_likes }} like{{ total_likes|pluralize }}
+</form>
+<hr><br>
+
+
+
+<form action="{% url 'postcomment' dd.sno  %}" method="post">
+  {% csrf_token %}
+  <input type="text" name="comment" placeholder="Enter comment here">
+  <input type="hidden" name="sno" value="{{post.sno}}" >
+  <input type="submit" value="Submit">
+</form>
+<div><br><br>
+  {% for i in comments %}
+
+  <div id="username"> 
+    <img src="{{ i.user.profile.profile_pic.url }}" alt="user image" width="40px" id="reviewimg1"> 
+    {{ i.user }} 
+</div>
+
+<div id="rdate"> 
+    <small> {{ i.date_created }} </small> 
+</div>
+    <div id="cname2"> {{ i.comment|safe }} </div>
+  <br><br>
+  {% endfor %}
+</div>
+</div>
+
+    
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+   
