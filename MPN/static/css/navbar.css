@@ -12,6 +12,50 @@ body{
 	transition: all 300ms linear;
 }
 
+#review{
+	border: 0px solid #c4c3ca;
+	padding-left: 35%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	margin-top: -200px;
+}
+
+#option{
+	margin-top: -500px;
+	
+}
+
+
+#reviewimg1{
+	display: inline-block;
+		position: relative;
+		width: 40px;
+		height: 40px;
+		overflow: hidden;
+		border-radius: 50%;
+}
+#reviewimg2{
+	display: inline-block;
+		position: relative;
+	
+		overflow: hidden;
+		border-radius: 5%;
+
+}
+#section{
+	display: inline-block;
+	border: 1px solid #8167a9;
+	box-shadow: 0 5px 5px rgb(88, 87, 87);
+	padding: 10px 15px;
+	margin-left: -100px;
+	width: 85%;
+	box-sizing: border-box;
+	position: relative;
+	border-radius: 2%;
+
+}
+
+
 #about {
 	border: 2px solid #c4c3ca;
 	padding-left: 35%;
