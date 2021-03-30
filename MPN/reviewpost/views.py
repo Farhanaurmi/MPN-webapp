@@ -10,7 +10,7 @@ from django.urls import reverse_lazy,reverse
 # Create your views here.
 @login_required
 def review_post(request):
-    form = Reviewpost.objects.all()
+    form = Reviewpost.objects.order_by('-date_created')
     return render(request,'reviewpost/reviewpost.html',  {'form':form})
 
 

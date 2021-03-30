@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def recipepost(request):
-    form = Recipepost.objects.all()
+    form = Recipepost.objects.order_by('-date_created')
     return render(request,'recipepost/recipepost.html', {'form':form})
 
 
@@ -29,7 +29,7 @@ def cpost(request):
 def dpost(request,d_id):
     dd2 = get_object_or_404(Recipepost, pk=d_id)
     return render(request,'recipepost/dpost.html', {'dd':dd2})
-
+@login_required
 def search(request):
     query=request.GET['query']
     allpost=Recipepost.objects.filter(title__icontains=query)
