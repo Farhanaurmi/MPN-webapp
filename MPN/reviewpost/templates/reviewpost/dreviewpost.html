@@ -87,7 +87,12 @@
 
 </div>
 
-
+<style>
+    .like{
+        background-color: #594f5e;
+    }
+  
+</style>
 
 
 <div id="rcomment">
@@ -95,9 +100,10 @@
 <form action="{% url 'likepost' dd.sno %}" method="POST">
   {% csrf_token %}
   {% if liked %}
-  <button type="submit" name="post_id" value="{{ dd.sno }}" class="btn btn-primary btn-sm">Unlike</button>
+
+  <button type="submit" name="post_id" value="{{ dd.sno }}"> <img class="like" src="{% static 'images/unlike.png' %}" width="45"> </button>
   {% else %}
-  <button type="submit" name="post_id" value="{{ dd.sno }}" class="btn btn-primary btn-sm">Like</button>
+  <button type="submit" name="post_id" value="{{ dd.sno }}" > <img class="like" src="{% static 'images/like.png' %}" width="45"></button>
   {% endif %} - {{ total_likes }} like{{ total_likes|pluralize }}
 </form>
 <hr><br>

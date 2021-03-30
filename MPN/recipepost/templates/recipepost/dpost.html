@@ -83,11 +83,18 @@
     </div>
 
     </div>
-    <br><br><br>
+    <br>
 
 </div>
-<h5>{{ dd.no_of_ratings }}</h5>
-<h5>{{ dd.avg_ratings|floatformat:1 }}</h5>
+<style>
+    #people{
+        margin-left: 23%;
+    }
+</style>
+
+<div id="people" ><img src="{% static 'images/people.png' %}" width="50px" alt="">&nbsp;&nbsp;{{ dd.no_of_ratings }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="{% static 'images/star.png' %}" width="46px" alt="">&nbsp;&nbsp;{{ dd.avg_ratings|floatformat:1 }} <br> <br>
+
 <form action="{% url 'rate' dd.sno  %}" method="post">
   {% csrf_token %}
   <label for="rate">Rating:</label>
@@ -101,6 +108,7 @@
   </select>
   <input type="submit" value="Submit">
 </form> 
+</div>
 
     
 {% endblock %}
