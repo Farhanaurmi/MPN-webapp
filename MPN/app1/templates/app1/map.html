@@ -11,10 +11,31 @@
         height: 70%;
         width:100%;
       }
+      #map2{
+        margin-left: 90%;
+        color:aquamarine;
+        font-size: larger;
+        font-weight: bold;
+        border: 0.5px  solid grey;
+        padding: 3px;
+        box-shadow: 0px 5px 5px 0px rgb(54, 53, 53);
+      }
+      #maptitle{
+        margin-left: 5%;
+        margin-top: 1.5%;
+        color:aquamarine;
+        font-size: x-large;
+        font-weight: normal;
+        border: 0.5px  solid grey;
+        padding: 3px;
+        box-shadow: 0px 5px 5px 0px rgb(54, 53, 53);
+      }
 
       /* Optional: Makes the sample page fill the window. */
       html,
       body {
+        background-color:#48404d;
+        
         height: 100%;
         margin: 0;
         padding: 0;
@@ -36,7 +57,8 @@
     </script>
   </head>
   <body>
-    <h1>Neighborhood Food Maps</h1> <br> <br>
+    <div id="maptitle">Neighborhood Food Maps</div><br> <br>
+   <a href="/"><div id="map2">Home</div></a>  <br>
     <div id="map"></div>
 
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
@@ -44,6 +66,6 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqU5DY--IrTQd_wnabEhnSehi5oywLsHI&callback=initMap&libraries=&v=weekly"
       async
     ></script>
-    <a href="/">Back</a>
+    
   </body>
 </html>
