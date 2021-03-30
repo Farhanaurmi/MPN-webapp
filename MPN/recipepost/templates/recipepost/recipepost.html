@@ -30,7 +30,7 @@
 <div class="nav">
     <div class="nav__content">
         <ul class="nav__list">
-            <li class="nav__list-item active-nav"><a href="/" class="hover-target">home</a></li>
+            <li class="nav__list-item"><a href="/" class="hover-target">home</a></li>
             <li class="nav__list-item"><a href="{% url 'cpost' %}" class="hover-target">Create Recipe</a></li>
             <li class="nav__list-item"><a href="{% url 'about' %}" class="hover-target">My Profile</a></li>
 
@@ -59,11 +59,7 @@
 <div class='cursor2' id="cursor2"></div>
 <div class='cursor3' id="cursor3"></div>
 
-<div id="review">   
-    <form method="GET" action="{% url 'search' %}" >
-        <input type="search" placeholder="Search" aeia-label="search" name="query" id="query">
-        <button type="submit">Search</button>
-    </form> <br> <br>
+<div id="recipe">   
     {% for i in form %}
     <div id="section">
     <div id="username"> 
@@ -86,8 +82,75 @@
     </div>
     <br><br><br>
 {% endfor %}
+
+<style>
+
+.searchBox {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform:  translate(-50%,50%);
+    background: #2f3640;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+    
+}
+    
+.searchBox:hover > .searchInput {
+    width: 240px;
+padding: 0 6px;
+}
+    
+.searchBox:hover > .searchButton {
+  background: white;
+  color : #2f3640;
+}
+
+.searchButton {
+    margin-top: -10px;
+    color: white;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #2f3640;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.6s;
+}
+    
+.searchInput {
+    border:none;
+    background: none;
+    outline:none;
+    float:left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 20px;
+    width: 0px;
+    
+}
+    
+@media screen and (max-width: 620px) {
+.searchBox:hover > .searchInput {
+    width: 150px;
+    padding: 0 6px;
+}
+}  
+</style>
+<form method="GET" action="{% url 'search' %}" >
+    <div class="searchBox">
+    <input class="searchInput" type="search" name="query" placeholder="Search">
+    <button type="submit" class="searchButton">
+        <img src="{% static 'images/search.png' %}" width="25">
+    </button>
+    </div>
+</form>
 </div>
 
     
 {% endblock %}
-

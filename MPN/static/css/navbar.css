@@ -48,12 +48,20 @@ body{
 	font-weight: bold;
 }
 
+#recipe{
+	border: 0px solid #c4c3ca;
+	margin-left: 30%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	margin-top: -450px;
+}
+
 #review{
 	border: 0px solid #c4c3ca;
 	margin-left: 30%;
 	padding-top: 2%;
 	padding-bottom: 2%;
-	margin-top: -550px;
+	margin-top: -500px;
 }
 
 #option{
