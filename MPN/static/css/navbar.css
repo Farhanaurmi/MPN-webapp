@@ -38,7 +38,6 @@ body{
 
 #rdate{
 	color: rgb(145, 145, 145);
-	font-weight:bold;
 	font-size: smaller;
 	padding-left: 43px;
 }
@@ -87,10 +86,14 @@ body{
 		border-radius: 5%;
 }
 #section{
+	margin-top: 15px;
 	display: inline-block;
 	border: 1px solid #8167a9;
 	box-shadow: 0 5px 5px rgb(88, 87, 87);
-	padding: 10px 15px;
+	padding-top: 15px;
+	padding-bottom: 10px;
+	padding-left: 15px;
+	padding-right: 300px;
 	margin-left: -100px;
 	width: 90%;
 	box-sizing: border-box;
@@ -102,10 +105,10 @@ body{
 
 #about {
 	border: 2px solid #c4c3ca;
-	padding-left: 35%;
+	padding-left: 25%;
 	padding-top: 2%;
 	padding-bottom: 2%;
-	margin-top: -550px;
+	margin-top: -450px;
 }
 
 .about2{
@@ -113,11 +116,14 @@ body{
 	display: inline-block;
 	border: 1px solid #8167a9;
 	box-shadow: 0 5px 5px rgb(88, 87, 87);
-	padding: 5px;
-	width: 50%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 5px;
+	padding-right: 50px;
+	width: 80%;
 	box-sizing: border-box;
 	position: relative;
-	border-radius: 15%;
+	border-radius: 10px;
 
 }
 #aboutimg{

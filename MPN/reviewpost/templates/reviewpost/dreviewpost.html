@@ -89,33 +89,62 @@
 
 <style>
     .like{
-        background-color: #594f5e;
+        border-radius: 50%;
+
+    }
+    #button{
+        border: chartreuse;
+        background-color: #48404d;
+        border-radius: 49%;       
+    }
+    #button:hover{
+        border: chartreuse;
+        background-color: #48404d;
+        border-radius: 49%;  
+        box-shadow: 2px 2px 2px 2px #342e38;
     }
   
 </style>
 
 
 <div id="rcomment">
-<br><hr>
+    <hr>
 <form action="{% url 'likepost' dd.sno %}" method="POST">
   {% csrf_token %}
   {% if liked %}
 
-  <button type="submit" name="post_id" value="{{ dd.sno }}"> <img class="like" src="{% static 'images/unlike.png' %}" width="45"> </button>
+  <button type="submit" name="post_id" value="{{ dd.sno }}" id="button"> <img class="like" src="{% static 'images/unlike.png' %}" width="45"> </button>
   {% else %}
-  <button type="submit" name="post_id" value="{{ dd.sno }}" > <img class="like" src="{% static 'images/like.png' %}" width="45"></button>
+  <button type="submit" name="post_id" value="{{ dd.sno }}" id="button"> <img class="like" src="{% static 'images/like.png' %}" width="45"></button>
   {% endif %} - {{ total_likes }} like{{ total_likes|pluralize }}
 </form>
 <hr><br>
 
 
 
+<style>
+    input{
+        width: 50%;
+        color: blanchedalmond;
+        padding: 10px;
+        border: 1px solid;
+        border-radius: 10px;
+    }
+    .bbtn{
+        box-shadow: 2px 2px 2px 2px #48404d;
+    }
+</style>
+
 <form action="{% url 'postcomment' dd.sno  %}" method="post">
   {% csrf_token %}
   <input type="text" name="comment" placeholder="Enter comment here">
   <input type="hidden" name="sno" value="{{post.sno}}" >
-  <input type="submit" value="Submit">
+  <button type="submit" id="button" class="bbtn"><img src="{% static 'images/comment.png' %}" width="45px"></button>
 </form>
+
+
+
+
 <div><br><br>
   {% for i in comments %}
 
